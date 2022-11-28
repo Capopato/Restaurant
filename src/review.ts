@@ -1,22 +1,21 @@
 export class Review{
-    author: string
-    stars: number
-    content: string
-    createdAt: Date
-    constructor(author: string, stars: number, content: string, createdAt: Date){
-        this.author = author
-        this.stars = stars
-        this.content = content
-        this.createdAt = createdAt
+    private author: string
+    private createdAt: Date
+    private stars: number
+    private content: string
+    constructor(options: ReviewOptions){
+        this.author = options.author
+        this.createdAt = options.createdAt
+        this.stars = options.stars
+        this.content = options.content
     }
-
     getAuthor(){
         return this.author
     }
     getCreatedAt(){
         return this.createdAt
     }
-    getStars(){
+    getStarts(){
         return this.stars
     }
     getContent(){
@@ -24,6 +23,9 @@ export class Review{
     }
 }
 
-// 1 review declare below
-export const review1 = new Review('Karenn', 1.7, 'The food was super good and the waiters were nice even though it was super busy. But I was set at a table close to the bathroom. Unacceptable so I will not return here and give a 1.7/5. Did not leave a tip.', new Date(2022, 11, 28))
-
+interface ReviewOptions{
+    author: string,
+    createdAt: Date,
+    stars: number,
+    content: string,
+}
